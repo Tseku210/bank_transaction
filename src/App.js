@@ -4,6 +4,7 @@ import axios from "axios";
 import TransactionData from "./components/TransactionData";
 import Transaction from "./components/Transaction";
 import Error from "./components/Error";
+import Login from "./components/Login";
 
 function App() {
   const [userDans, setUserDans] = useState("");
@@ -14,6 +15,8 @@ function App() {
   const [error, setError] = useState("");
   const [reportPDF, setReportPDF] = useState(false);
   const [reportHTML, setReportHTML] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     getTransactions();
@@ -83,24 +86,29 @@ function App() {
 
   return (
     <div className="App">
-      {error ? (
-        <Error clearError={clearError} error={error} />
-      ) : (
-        <Transaction
-          input={{
-            setUserDans,
-            setReceiverDans,
-            setAmount,
-            setType,
-            submit,
-            getTransactions,
-          }}
-        />
-      )}
-      <TransactionData
-        transactions={transactions}
-        report={{ generateReport, reportHTML, reportPDF }}
-      />
+      {
+        !isLoggedIn ? <Login /> : 
+        <>
+            {error ? (
+              <Error clearError={clearError} error={error} />
+            ) : (
+              <Transaction
+                input={{
+                  setUserDans,
+                  setReceiverDans,
+                  setAmount,
+                  setType,
+                  submit,
+                  getTransactions,
+                }}
+              />
+            )}
+            <TransactionData
+              transactions={transactions}
+              report={{ generateReport, reportHTML, reportPDF }}
+            />
+        </>
+      }
     </div>
   );
 }
