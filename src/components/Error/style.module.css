@@ -1,0 +1,30 @@
+.Error {
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.Error button {
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  color: red;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.Error button:hover {
+  /* transform: scale(1.1); */
+  color: white;
+  background-color: red;
+}

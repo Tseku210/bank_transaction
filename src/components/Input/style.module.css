@@ -1,0 +1,15 @@
+.Input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.Input input {
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #eee;
+  font-family: inherit;
+  font-size: 14px;
+}
